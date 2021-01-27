@@ -15,11 +15,11 @@ export class MovieView extends React.Component {
 
         return(
             <div className='movie-view'>
-                <img className='movie-poster' src={movie.ImagePath}/>
+                <img className='movie-poster' src={movie.ImageUrl}/>
                 <div className='movie-title'>
                     <span className='label'>Title: </span>
                     <span className='value'>{movie.Name}</span>
-                </div>
+                 </div>
                 <div className='movie-description'>
                     <span className='label'>Description: </span>
                     <span className='value'>{movie.Description}</span>
