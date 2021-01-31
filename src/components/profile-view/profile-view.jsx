@@ -57,22 +57,6 @@ export class ProfileView extends React.Component {
       });
   }
 
-//   removeFavorite(movie) {
-//     let token = localStorage.getItem("token");
-//     let url =
-//       "https://my-flix-db-app.herokuapp.com/users/" +
-//       localStorage.getItem("user") +
-//       "/favorites/" +
-//       movie._id;
-//     axios
-//       .delete(url, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((response) => {
-//         console.log(response);
-//         this.componentDidMount();
-//       });
-//   }
 
     handleDelete() {
         let token = localStorage.getItem("token");
@@ -148,34 +132,7 @@ export class ProfileView extends React.Component {
                 
               </Form>
             </Col>
-            {/* <Col>
-              <div
-                className="favoriteMovies"
-                style={{
-                  float: "right",
-                  textAlign: "center",
-                  width: "24rem",
-                }}
-              >
-                <h1>Favorite Movies</h1>
-                {favoriteMovieList.map((movie) => {
-                  return (
-                    <div key={movie._id}>
-                      <Card>
-                        <Card.Body>
-                          <Link to={`/movies/${movie._id}`}>
-                            <Card.Title>{movie.Title}</Card.Title>
-                          </Link>
-                        </Card.Body>
-                      </Card>
-                      <Button onClick={() => this.removeFavorite(movie)}>
-                        Remove
-                      </Button>
-                    </div>
-                  );
-                })}
-              </div>
-            </Col> */}
+          
           </Row>
         </Container>
       </div>
