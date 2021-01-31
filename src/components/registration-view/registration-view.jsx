@@ -14,35 +14,10 @@ export function RegistrationView(props) {
          props.onRegister('test');
      };
 
-//      return (
-//          <form>
-//              <label>
-//                  Username:
-//                  <input type='text' value={username} onChange={e => setUsername(e.target.value)}/>
-//              </label>
-//              <label>
-//                  Password:
-//                  <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
-//              </label>
-//              <label>
-//                  Confirm Password:
-//                  <input type='password' value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
-//              </label>
-//              <label>
-//                  Email:
-//                  <input type='email' value={email} onChange={e => setEmail(e.target.value)}/>
-//              </label>
-//              <label>
-//                  Birthday:
-//                  <input type='date' value={birthday} onChange={e => setBirthday(e.target.value)}/>
-//              </label>
-//              <button type="button" onClick={handleSubmit}>Submit</button>
-//          </form>
-//      );
-// }
+
 return (
     <form>
-        <h3>Sign In</h3>
+        <h3>Register New User</h3>
         <div className='form-group'>
         <label>
             Username:
