@@ -1,3 +1,54 @@
+body .h5 {
+  text-align: center;
+  font-weight: bold;
+}
+.movie-poster {
+  float: left;
+  margin-right: 50px;
+}
+
+.movie-title {
+  font-family: "copperplate", fantasy;
+  margin-bottom: 20px;
+}
+
+.movie-genre {
+  text-align: inherit;
+}
+
+.movie-director {
+  text-align: inherit;
+  margin-bottom: 50px;
+}
+
+.movie-description {
+  margin-bottom: 100px;
+}
+.director-bio {
+  margin-bottom: 20px;
+}
+
+.director-name {
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: table-footer-group;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.genre-title {
+  margin-bottom: 20px;
+}
+
+.genre-description {
+  margin-bottom: 100px;
+}
+.btn-group-vertical {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .my-flix {
   color: steelblue;
 }

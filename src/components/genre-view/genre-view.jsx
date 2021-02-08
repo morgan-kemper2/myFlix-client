@@ -1,51 +1,74 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import { Row } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 
 import './genre-view.scss';
 
 export class GenreView extends React.Component {
+  constructor() {
+    super();
 
-    constructor() {
-        super();
+    this.state = {};
+  }
 
-        this.state = {};
-    }
+  render() {
+    const { movies, genre } = this.props;
 
-    render() {
+    if (!genre) return null;
 
-        const { genre } = this.props;
-
-        return (
-
-            <Container>
-            <div className='genre-view'>
-                <div className='genre-name'>
-                    <span className='label'>Name: </span>
-                    <span className='value'>{genre.Genre.Name}</span>
-                 </div>
-                <div className='director-bio'>
-                    <span className='label'>Description: </span>
-                    <span className='value'>{genre.Genre.Description}</span>
+    return (
+      <Container className="wrapper container-fluid">
+          <div className="genre-title ">
+            {/* <span className="label">Name: </span> */}
+            <span className="h1">{genre.Genre.Name}</span>
+          </div>
+          <div className="genre-description ">
+            {/* <span className="label">Description: </span> */}
+            <span className="value">{genre.Genre.Description}</span>
+          </div>
+      <Container>
+        <h4 className="mt-4">Some more {genre.Genre.Name} movies</h4>
+        <div className="d-flex row mt-3 ml-2">
+          {movies.map((movie) => {
+            if (movie.Genre.Name === genre.Genre.Name) {
+              return (
+                <div key={movie._id}>
+                  <Card
+                    className="mb-3 mr-2 h-100"
+                    style={{ width: '16rem' }}
+                  >
+                    <Card.Body>
+                          <Link to={`/movies/${movie._id}`}>
+                          <Card.Img variant='sm' src={movie.ImageUrl}/>
+                          </Link>
+                      </Card.Body>
+                  </Card>
                 </div>
-                <Link to ={`/`}>
-                <Button variant='link'>Home</Button>
-                </Link>
-            </div>
-            </Container>
-        );
-
-    }
+              );
+            }
+          })}
+        </div>
+        <Link to={`/`}>
+<Button variant="link">Return to All Movies</Button>
+</Link>
+      </Container>
+    </Container>
+  );
+}
 }
 
+
 GenreView.propTypes = {
-    Genre: PropTypes.shape({
-        Name: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired
-    })
+Movie: PropTypes.shape({
+  Genre: {
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    // ImagePath: PropTypes.string.isRequired,
+  },
+}),
 };
