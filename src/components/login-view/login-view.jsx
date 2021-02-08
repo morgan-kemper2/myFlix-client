@@ -45,7 +45,8 @@ export function LoginView(props) {
              </label>
              </div>
              <button type="button" className='btn btn-primary' onClick={handleSubmit}>Submit</button>
-             <p>Not a Member? 
+             <p>Not a Member?</p>
+             <p>
              <Link to={`/register`}>
                   <Button 
                     variant="link"
