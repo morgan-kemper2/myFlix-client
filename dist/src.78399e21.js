@@ -55048,7 +55048,7 @@ function UpdateView(props) {
         window.open("/", "_self");
       }).catch(function (e) {
         console.log(e);
-        alert("Username contains non alphanumeric characters - not allowed");
+        alert(e.response.data);
       });
     }
   };
@@ -55599,7 +55599,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53707" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61863" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
