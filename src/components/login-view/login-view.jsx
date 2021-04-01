@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+/** imported react bootstrap components*/
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -10,6 +11,7 @@ export function LoginView(props) {
      const [ password, setPassword ] = useState('');
      const [ login, setLogin ] = useState('');
 
+    /**  what to do once submit is clicked*/
      const handleSubmit = (e) => {
          e.preventDefault();
          axios.post('https://findamovieflix.herokuapp.com/login', {
@@ -29,6 +31,7 @@ export function LoginView(props) {
          setLogin(!login);
      }
 
+    /**  renders a login form for entering username and password */
      return (
          <Form className='form1'>
              <h3>Sign In</h3>

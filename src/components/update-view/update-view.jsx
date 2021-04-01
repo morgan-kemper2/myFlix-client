@@ -15,6 +15,7 @@ export function UpdateView(props) {
   const [passwordErr, setPasswordErr] = useState({});
   const [emailErr, setEmailErr] = useState({});
 
+  // update profile
   const handleUpdate = (e) => {
     e.preventDefault();
 
@@ -55,6 +56,7 @@ export function UpdateView(props) {
     }
   };
 
+  // sets form requirements
   const formValidation = () => {
     const usernameErr = {};
     const passwordErr = {};
@@ -82,6 +84,7 @@ export function UpdateView(props) {
     return isValid;
   };
 
+  // renders update profile form
   return (
     <Container>
       <h1>Update your account</h1>

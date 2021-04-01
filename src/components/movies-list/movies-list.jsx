@@ -5,6 +5,7 @@ import { Col, Row, Container } from "react-bootstrap";
 import { MovieCard } from "../movie-card/movie-card";
 
 const mapStateToProps = (state) => {
+  /** filters movies*/
   const { visibilityFilter } = state;
   return { visibilityFilter };
 };

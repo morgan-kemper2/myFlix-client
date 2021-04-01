@@ -14,7 +14,7 @@ export class MovieView extends React.Component {
         this.state = {};
     }
 
-
+    /**  add a movie to favorites list*/
     addFavorite(movie) {
         let token = localStorage.getItem("token");
         let url =
@@ -31,12 +31,12 @@ export class MovieView extends React.Component {
           })
           .then((response) => {
             console.log(response);
-            // window.open("/", "_self");
+            /**  window.open("/", "_self");*/
             alert("Added to favorites!");
           });
       }
 
-
+    /** renders all of a single movie's information*/
     render() {
         const { movie } = this.props;
 
@@ -65,11 +65,14 @@ export class MovieView extends React.Component {
                     <Link to ={'/'}>
                         <Button variant='link'>Return to All Movies</Button>
                         </Link>
+
+                {/** links to view director information and genre information */}
                 <Link to ={`/directors/${movie.Director.Name}`}>
                 <Button variant='link'>View Director</Button></Link>
                 <Link to ={`/genres/${movie.Genre.Name}`}>
                     <Button variant='link'>View Genre</Button>
                 </Link>
+                {/** button to add movie to favorites */}
                 <Button variant='link' onClick={()=>this.addFavorite(movie)}>Add Movie to Favorites</Button>
                 </div>
             </div>
@@ -83,10 +86,6 @@ MovieView.propTypes = {
         Name: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         ImageUrl: PropTypes.string.isRequired,
-        // Genre: PropTypes.shape({
-        //     Name: PropTypes.string.isRequired,
-        //     Description: PropTypes.string.isRequired
-        // }),
         Director: PropTypes.shape({
             Name: PropTypes.string.isRequired,
             Bio: PropTypes.string.isRequired,

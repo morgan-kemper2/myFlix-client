@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
 
+/** bootstrap components imported */
 import Container from 'react-bootstrap/Container';
 import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+
 
 import './director-view.scss';
 
@@ -16,6 +18,9 @@ export class DirectorView extends React.Component {
         this.state = {};
     }
 
+    /** 
+     * @returns
+     * renders a view that displays name, bio, dob */ 
     render() {
 
         const { movies, director } = this.props;
@@ -38,6 +43,7 @@ export class DirectorView extends React.Component {
                 </div>
                
             </div>
+            {/** renders images of this dirctor's other movies in card format */}
             <h4 className="mt-4">Some more {director.Director.Name} movies</h4>
           <div className="d-flex row mt-3 ml-1">
             {movies.map((movie) => {

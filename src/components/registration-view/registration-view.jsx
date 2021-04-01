@@ -14,6 +14,7 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
+  /**  register user*/
   const handleRegister = (e) => {
     e.preventDefault();
     axios.post('https://findamovieflix.herokuapp.com/users', {
@@ -34,6 +35,7 @@ export function RegistrationView(props) {
     });
   };
 
+  /**  renders a registration form*/
   return (
     <Container>
       <div className="register-heading">
@@ -108,10 +110,6 @@ export function RegistrationView(props) {
         >
           Submit
         </Button>
-        {/* <br />
-        <div className="current-user">
-          Already have an account?
-        </div> */}
         <p>
         <Link to={`/`}>
           <Button 

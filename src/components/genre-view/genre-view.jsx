@@ -16,6 +16,8 @@ export class GenreView extends React.Component {
     this.state = {};
   }
 
+  /** 
+   * renders a display for genre name and description */
   render() {
     const { movies, genre } = this.props;
 
@@ -24,13 +26,15 @@ export class GenreView extends React.Component {
     return (
       <Container className="wrapper container-fluid">
           <div className="genre-title ">
-            {/* <span className="label">Name: </span> */}
+            {/** <span className="label">Name: </span> */}
             <span className="h1">{genre.Genre.Name}</span>
           </div>
           <div className="genre-description ">
-            {/* <span className="label">Description: </span> */}
+            {/** <span className="label">Description: </span> */}
             <span className="value">{genre.Genre.Description}</span>
           </div>
+
+    {/** renders images of other movies in this genre displayed in card format */}
       <Container>
         <h4 className="mt-4">Some more {genre.Genre.Name} movies</h4>
         <div className="d-flex row mt-3 ml-2">

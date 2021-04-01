@@ -30,13 +30,9 @@ export class ProfileView extends React.Component {
     this.getUser(accessToken);
   }
 
-  // formatDate(date) {
-  //   if (date) date = date.substring(0, 10);
-  //   return date;
-  // }
 
+  /**get user*/
   getUser(token) {
-    //console.log(localStorage.getItem("user"));
     let url =
       "https://findamovieflix.herokuapp.com/users/" +
       localStorage.getItem("user");
@@ -56,6 +52,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+  /** remove a movie from favorites*/
   removeFavorite(movie) {
     let token = localStorage.getItem("token");
     let url =
@@ -73,6 +70,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+    /**  delete user profile*/
     handleDelete() {
         let token = localStorage.getItem("token");
         let user = localStorage.getItem("user");
@@ -91,6 +89,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+  /**  renders profile view*/
   render() {
     const { movies } = this.props;
     this.getUser(localStorage.getItem("token"));
@@ -101,6 +100,7 @@ export class ProfileView extends React.Component {
 
     if (!movies) alert("Please sign in");
     return (
+      /** component that renders username, password, email*/
       <div className="userProfile" style={{ display: "flex" }}>
         <Container>
           <Row>
@@ -115,10 +115,6 @@ export class ProfileView extends React.Component {
                   <h3>Email:</h3>
                   <Form.Label>{this.state.email}</Form.Label>
                 </Form.Group>
-                {/* <Form.Group controlId="formBasicDate">
-                  {/* <h3>Birthday:</h3>
-                  <Form.Label>{this.state.birthday}</Form.Label>
-                </Form.Group> */} 
                 <div className='btn-group-vertical'>
                   <Link to={`/update/${this.state.username}`}>
                     <Button 
@@ -130,6 +126,7 @@ export class ProfileView extends React.Component {
                       Edit Profile
                     </Button>
                   </Link>
+                {/** links back to main view */}
                 <Link to={`/`}>
                   <Button
                   variant="link" 
@@ -139,6 +136,7 @@ export class ProfileView extends React.Component {
                     Back to Main
                   </Button>
                 </Link>
+                {/** button to delete account */}
                 <Button
                 variant="link" 
                         size="sm"

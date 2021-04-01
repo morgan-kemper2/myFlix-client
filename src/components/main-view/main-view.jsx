@@ -45,6 +45,7 @@ export class MainView extends React.Component {
     }
   }
 
+  /** logged in user*/
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -56,6 +57,7 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  /** get all movies*/
   getMovies(token) {
     axios
       .get("https://findamovieflix.herokuapp.com/movies", {
@@ -69,23 +71,7 @@ export class MainView extends React.Component {
       });
   }
 
-  // onMovieClick(movie) {
-  //     this.setState({
-  //         selectedMovie: movie
-  //     });
-  // }
-
-  //  onRegister(register) {
-  //      this.setState({
-  //          register
-  //      });
-  //  }
-
-  //  setInitialState() {
-  //      this.setState({
-  //          selectedMovie: null,
-  //      })
-  //  }
+  /** logout user*/
   logOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -97,16 +83,17 @@ export class MainView extends React.Component {
     window.open('/', '_self');
   }
 
+  /** renders the view to display all movies*/
   render() {
 
     let { movies, visibilityFilter } = this.props;
     let { user } = this.state;
-    // if(!register) return <RegistrationView onRegister={(register) => this.onRegister(register)}/>
-    // if (!movies) return <div className='main-view'/>;
 
     return (
       <Router>
         <div className="main-view">
+
+          {/** renders a navigation bar for navigating between views, signing out and filtering movies */}
           <Navbar bg="light" expand="lg">
             <Navbar.Brand href = {'/'}>MyMovieFlix</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -169,6 +156,7 @@ export class MainView extends React.Component {
           </Navbar>
 
           <Row className="justify-content-md-center-margin-auto">
+            {/** route builds the pathways to be displayed in the url */}
             <Route
               exact
               path="/"

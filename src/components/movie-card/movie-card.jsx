@@ -11,6 +11,7 @@ export class MovieCard extends React.Component {
     render () {
         const { movie } = this.props;
 
+        /** renders the movie card with the movie name, description, and image*/
         return (
             <Card style={{ width: '16rem'}}>
                 <Card.Img variant='top' src={movie.ImageUrl}/>

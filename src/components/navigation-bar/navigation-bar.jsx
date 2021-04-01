@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, Form, FormControl } from 'react-bootstrap';
 
-
+/** navigation bar*/
 export const NavigationBar = () => (
     <Navbar expand="lg">
       <Navbar.Brand href='/'>MyMovieFlix</Navbar.Brand>
