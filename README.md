@@ -16,36 +16,23 @@
                 <h3>Main View:</h3><br>
                 Returns list of all movies<br>
                 Sorting and filtering<br>
-                Ability to select a movie for more details<br></p>
-                <p>
+                Ability to select a movie for more details<br>
                 <h3>Single View:</h3><br>
                 Return data about a single movie — director, genre, description, image<br>
                 Allows users to add a movie to their list of favorites<br>
-                </p>
-                <p>
                 <h3>Login View:</h3><br>
                 Allows users to login with a username and password
-                </p>
-                <p>
                 <h3>Registration View:</h3><br>
                 Allows new user to register with a username, password, email and birthday
-                </p>
-                <p>
                 <h3>Genre View:</h3><br>
                 Returns data about a genre with a name and description Displays other movies in that genre
-                </p>
-                <p>
                 <h3>Director View:</h3><br>
                 Returns data about a director — name, bio, birth year and death year<br>
                 Displays other movies with that director
-                </p>
-                <p>
                 <h3>Profile View:</h3><br>
                 Allows users to update their user info<br>
                 Allows existing users to deregister Displays movies saved to favorites<br>
                 Allows user to remove a movie from favorites<br>
-                </p>
-
         </p>
     </body>
 </html>
