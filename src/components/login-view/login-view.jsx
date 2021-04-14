@@ -24,6 +24,7 @@ export function LoginView(props) {
          })
          .catch(e => {
              console.log('No Such User')
+             alert('Incorrect username or password')
          });
      };
 

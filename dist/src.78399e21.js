@@ -39959,6 +39959,7 @@ var _actions = require("../../actions/actions");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/** filter movies*/
 function VisibilityFilterInput(props) {
   return _react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
@@ -53944,6 +53945,8 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var movie = this.props.movie;
+      /** renders the movie card with the movie name, description, and image*/
+
       return _react.default.createElement(_Card.default, {
         style: {
           width: '16rem'
@@ -53991,6 +53994,7 @@ var _movieCard = require("../movie-card/movie-card");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
+  /** filters movies*/
   var visibilityFilter = state.visibilityFilter;
   return {
     visibilityFilter: visibilityFilter
@@ -54082,6 +54086,8 @@ function LoginView(props) {
       _useState6 = _slicedToArray(_useState5, 2),
       login = _useState6[0],
       setLogin = _useState6[1];
+  /**  what to do once submit is clicked*/
+
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -54094,12 +54100,15 @@ function LoginView(props) {
       props.onLoggedIn(data);
     }).catch(function (e) {
       console.log('No Such User');
+      alert('Incorrect username or password');
     });
   };
 
   var loginUser = function loginUser() {
     setLogin(!login);
   };
+  /**  renders a login form for entering username and password */
+
 
   return _react.default.createElement(_Form.default, {
     className: "form1"
@@ -54198,6 +54207,8 @@ function RegistrationView(props) {
       _useState8 = _slicedToArray(_useState7, 2),
       birthday = _useState8[0],
       setBirthday = _useState8[1];
+  /**  register user*/
+
 
   var handleRegister = function handleRegister(e) {
     e.preventDefault();
@@ -54218,6 +54229,8 @@ function RegistrationView(props) {
       alert(e.response.data);
     });
   };
+  /**  renders a registration form*/
+
 
   return _react.default.createElement(_Container.default, null, _react.default.createElement("div", {
     className: "register-heading"
@@ -54352,6 +54365,8 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     _this.state = {};
     return _this;
   }
+  /**  add a movie to favorites list*/
+
 
   _createClass(MovieView, [{
     key: "addFavorite",
@@ -54367,11 +54382,14 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        console.log(response); // window.open("/", "_self");
+        console.log(response);
+        /**  window.open("/", "_self");*/
 
         alert("Added to favorites!");
       });
     }
+    /** renders all of a single movie's information*/
+
   }, {
     key: "render",
     value: function render() {
@@ -54439,10 +54457,6 @@ MovieView.propTypes = {
     Name: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageUrl: _propTypes.default.string.isRequired,
-    // Genre: PropTypes.shape({
-    //     Name: PropTypes.string.isRequired,
-    //     Description: PropTypes.string.isRequired
-    // }),
     Director: _propTypes.default.shape({
       Name: _propTypes.default.string.isRequired,
       Bio: _propTypes.default.string.isRequired,
@@ -54469,11 +54483,11 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _Card = _interopRequireDefault(require("react-bootstrap/Card"));
-
 var _Container = _interopRequireDefault(require("react-bootstrap/Container"));
 
 var _reactBootstrap = require("react-bootstrap");
+
+var _Card = _interopRequireDefault(require("react-bootstrap/Card"));
 
 require("./director-view.scss");
 
@@ -54515,6 +54529,10 @@ var DirectorView = /*#__PURE__*/function (_React$Component) {
     _this.state = {};
     return _this;
   }
+  /** 
+   * @returns
+   * renders a view that displays name, bio, dob */
+
 
   _createClass(DirectorView, [{
     key: "render",
@@ -54583,7 +54601,7 @@ DirectorView.propTypes = {
     Birth: _propTypes.default.string.isRequired
   })
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","./director-view.scss":"components/director-view/director-view.scss"}],"components/genre-view/genre-view.scss":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js","react-bootstrap":"../node_modules/react-bootstrap/esm/index.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","./director-view.scss":"components/director-view/director-view.scss"}],"components/genre-view/genre-view.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -54652,6 +54670,9 @@ var GenreView = /*#__PURE__*/function (_React$Component) {
     _this.state = {};
     return _this;
   }
+  /** 
+   * renders a display for genre name and description */
+
 
   _createClass(GenreView, [{
     key: "render",
@@ -54801,17 +54822,14 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var accessToken = localStorage.getItem("token");
       this.getUser(accessToken);
-    } // formatDate(date) {
-    //   if (date) date = date.substring(0, 10);
-    //   return date;
-    // }
+    }
+    /**get user*/
 
   }, {
     key: "getUser",
     value: function getUser(token) {
       var _this2 = this;
 
-      //console.log(localStorage.getItem("user"));
       var url = "https://findamovieflix.herokuapp.com/users/" + localStorage.getItem("user");
 
       _axios.default.get(url, {
@@ -54829,6 +54847,8 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         });
       });
     }
+    /** remove a movie from favorites*/
+
   }, {
     key: "removeFavorite",
     value: function removeFavorite(movie) {
@@ -54848,6 +54868,8 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         _this3.componentDidMount();
       });
     }
+    /**  delete user profile*/
+
   }, {
     key: "handleDelete",
     value: function handleDelete() {
@@ -54867,6 +54889,8 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         console.log(error);
       });
     }
+    /**  renders profile view*/
+
   }, {
     key: "render",
     value: function render() {
@@ -54879,67 +54903,70 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
       });
       console.log(favoriteMovieList);
       if (!movies) alert("Please sign in");
-      return _react.default.createElement("div", {
-        className: "userProfile",
-        style: {
-          display: "flex"
-        }
-      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, null, _react.default.createElement(_Form.default, {
-        style: {
-          width: "24rem",
-          float: "left"
-        }
-      }, _react.default.createElement("h1", {
-        style: {
-          textAlign: "center"
-        }
-      }, "Profile Details"), _react.default.createElement(_Form.default.Group, {
-        controlId: "formBasicUsername"
-      }, _react.default.createElement("h3", null, "Username: "), _react.default.createElement(_Form.default.Label, null, this.state.username)), _react.default.createElement(_Form.default.Group, {
-        controlId: "formBasicEmail"
-      }, _react.default.createElement("h3", null, "Email:"), _react.default.createElement(_Form.default.Label, null, this.state.email)), _react.default.createElement("div", {
-        className: "btn-group-vertical"
-      }, _react.default.createElement(_reactRouterDom.Link, {
-        to: "/update/".concat(this.state.username)
-      }, _react.default.createElement(_Button.default, {
-        variant: "link",
-        type: "link",
-        size: "sm"
-      }, "Edit Profile")), _react.default.createElement(_reactRouterDom.Link, {
-        to: "/"
-      }, _react.default.createElement(_Button.default, {
-        variant: "link",
-        type: "submit",
-        size: "sm"
-      }, "Back to Main")), _react.default.createElement(_Button.default, {
-        variant: "link",
-        size: "sm",
-        "margin-bottom": "10px",
-        onClick: function onClick() {
-          return _this4.handleDelete();
-        }
-      }, "Delete Account")))), _react.default.createElement(_Col.default, null, _react.default.createElement("div", {
-        className: "favoriteMovies",
-        style: {
-          float: "right",
-          textAlign: "center",
-          width: "24rem"
-        }
-      }, _react.default.createElement("h1", null, "Favorite Movies"), favoriteMovieList.map(function (movie) {
-        return _react.default.createElement("div", {
-          key: movie._id
-        }, _react.default.createElement(_Card.default, null, _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_reactRouterDom.Link, {
-          to: "/movies/".concat(movie._id)
-        }, _react.default.createElement(_Card.default.Img, {
-          variant: "sm",
-          src: movie.ImageUrl
-        })))), _react.default.createElement(_Button.default, {
-          variant: "link",
-          onClick: function onClick() {
-            return _this4.removeFavorite(movie);
+      return (
+        /** component that renders username, password, email*/
+        _react.default.createElement("div", {
+          className: "userProfile",
+          style: {
+            display: "flex"
           }
-        }, "Remove ", movie.Name, " from Favorites"));
-      }))))));
+        }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Row.default, null, _react.default.createElement(_Col.default, null, _react.default.createElement(_Form.default, {
+          style: {
+            width: "24rem",
+            float: "left"
+          }
+        }, _react.default.createElement("h1", {
+          style: {
+            textAlign: "center"
+          }
+        }, "Profile Details"), _react.default.createElement(_Form.default.Group, {
+          controlId: "formBasicUsername"
+        }, _react.default.createElement("h3", null, "Username: "), _react.default.createElement(_Form.default.Label, null, this.state.username)), _react.default.createElement(_Form.default.Group, {
+          controlId: "formBasicEmail"
+        }, _react.default.createElement("h3", null, "Email:"), _react.default.createElement(_Form.default.Label, null, this.state.email)), _react.default.createElement("div", {
+          className: "btn-group-vertical"
+        }, _react.default.createElement(_reactRouterDom.Link, {
+          to: "/update/".concat(this.state.username)
+        }, _react.default.createElement(_Button.default, {
+          variant: "link",
+          type: "link",
+          size: "sm"
+        }, "Edit Profile")), _react.default.createElement(_reactRouterDom.Link, {
+          to: "/"
+        }, _react.default.createElement(_Button.default, {
+          variant: "link",
+          type: "submit",
+          size: "sm"
+        }, "Back to Main")), _react.default.createElement(_Button.default, {
+          variant: "link",
+          size: "sm",
+          "margin-bottom": "10px",
+          onClick: function onClick() {
+            return _this4.handleDelete();
+          }
+        }, "Delete Account")))), _react.default.createElement(_Col.default, null, _react.default.createElement("div", {
+          className: "favoriteMovies",
+          style: {
+            float: "right",
+            textAlign: "center",
+            width: "24rem"
+          }
+        }, _react.default.createElement("h1", null, "Favorite Movies"), favoriteMovieList.map(function (movie) {
+          return _react.default.createElement("div", {
+            key: movie._id
+          }, _react.default.createElement(_Card.default, null, _react.default.createElement(_Card.default.Body, null, _react.default.createElement(_reactRouterDom.Link, {
+            to: "/movies/".concat(movie._id)
+          }, _react.default.createElement(_Card.default.Img, {
+            variant: "sm",
+            src: movie.ImageUrl
+          })))), _react.default.createElement(_Button.default, {
+            variant: "link",
+            onClick: function onClick() {
+              return _this4.removeFavorite(movie);
+            }
+          }, "Remove ", movie.Name, " from Favorites"));
+        }))))))
+      );
     }
   }]);
 
@@ -55022,7 +55049,8 @@ function UpdateView(props) {
   var _useState13 = (0, _react.useState)({}),
       _useState14 = _slicedToArray(_useState13, 2),
       emailErr = _useState14[0],
-      setEmailErr = _useState14[1];
+      setEmailErr = _useState14[1]; // update profile
+
 
   var handleUpdate = function handleUpdate(e) {
     e.preventDefault();
@@ -55051,7 +55079,8 @@ function UpdateView(props) {
         alert(e.response.data);
       });
     }
-  };
+  }; // sets form requirements
+
 
   var formValidation = function formValidation() {
     var usernameErr = {};
@@ -55078,7 +55107,8 @@ function UpdateView(props) {
     setPasswordErr(passwordErr);
     setEmailErr(emailErr);
     return isValid;
-  };
+  }; // renders update profile form
+
 
   return _react.default.createElement(_Container.default, null, _react.default.createElement("h1", null, "Update your account"), _react.default.createElement(_Form.default, {
     className: "registration-form"
@@ -55245,6 +55275,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         this.getMovies(accessToken);
       }
     }
+    /** logged in user*/
+
   }, {
     key: "onLoggedIn",
     value: function onLoggedIn(authData) {
@@ -55256,6 +55288,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       localStorage.setItem("user", authData.user.Username);
       this.getMovies(authData.token);
     }
+    /** get all movies*/
+
   }, {
     key: "getMovies",
     value: function getMovies(token) {
@@ -55270,21 +55304,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       }).catch(function (error) {
         console.log(error);
       });
-    } // onMovieClick(movie) {
-    //     this.setState({
-    //         selectedMovie: movie
-    //     });
-    // }
-    //  onRegister(register) {
-    //      this.setState({
-    //          register
-    //      });
-    //  }
-    //  setInitialState() {
-    //      this.setState({
-    //          selectedMovie: null,
-    //      })
-    //  }
+    }
+    /** logout user*/
 
   }, {
     key: "logOut",
@@ -55298,6 +55319,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       alert('You have been successfully logged out');
       window.open('/', '_self');
     }
+    /** renders the view to display all movies*/
+
   }, {
     key: "render",
     value: function render() {
@@ -55306,9 +55329,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           movies = _this$props.movies,
           visibilityFilter = _this$props.visibilityFilter;
-      var user = this.state.user; // if(!register) return <RegistrationView onRegister={(register) => this.onRegister(register)}/>
-      // if (!movies) return <div className='main-view'/>;
-
+      var user = this.state.user;
       return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", {
         className: "main-view"
       }, _react.default.createElement(_reactBootstrap.Navbar, {
@@ -55599,7 +55620,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65478" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
